@@ -289,6 +289,10 @@ app.put('/api/grades', requireAuth, (req, res) => {
 });
 
 // ── Iniciar servidor ───────────────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`SeRV rodando em http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`SeRV rodando em http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
